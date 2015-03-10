@@ -4,3 +4,4 @@ build
 bower
 *.sublime-workspace
 *.log
+.rebooted

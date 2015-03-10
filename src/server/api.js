@@ -7,7 +7,7 @@ var api = {
 function greet(name) {
 	var d = Q.defer();
 
-	d.resolve("Hello, " + name);
+	d.resolve("Hello, " + name + "!");  
 	if (name === "err") throw new Error("err is not an allowed name!");
 	return d.promise;
 }

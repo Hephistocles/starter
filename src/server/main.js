@@ -8,6 +8,8 @@ app.get('/api/:name', function(req, res) {
 
 app.use('/', express.static(__dirname + '/../../build'));
 
+
+
 var server = app.listen(3000, function() {
 
 	var host = server.address().address;
@@ -44,7 +46,7 @@ function servePromise(res, p) {
 		if (err instanceof Error) {			
 			err = flattenError(err);
 		}
-		res.status(501).json({
+		res.status(500).json({
 			success: false,
 			error: err
 		});

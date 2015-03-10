@@ -1,14 +1,20 @@
 {
-	"name": "tbc",
-	"version": "tbc",
-	"authors": "tbc",
-	"description": "tbc",
+	"name": "starter",
+	"version": "0.0.0",
+	"authors": [
+		"Christopher Little <hephistocles@gmail.com>",
+		"Hephistocles"
+	],
+	"description": "Some starter stuff with grunt magic",
 	"main": "tbc",
-	"keywords": "tbc",
-	"license": "tbc",
-	"homepage": "tbc",
-
-	
+	"keywords": [
+		"Starter",
+		"angular",
+		"node",
+		"grunt"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/hephistocles/starter",
 	"private": true,
 	"ignore": [
 		"**/.*",
@@ -21,5 +27,12 @@
 		"angular": "*",
 		"bootstrap-sass": "~3.3.3"
 	},
-	"devDependencies": {}
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hephistocles/starter"
+	},
+	"bugs": {
+		"url": "https://github.com/hephistocles/starter/issues"
+	}
 }

@@ -98,6 +98,31 @@ module.exports = function(grunt) {
 			},
 		},
 
+		nodemon: {
+			dev: {
+				script: 'src/server/main.js',
+				options: {
+					nodeArgs: ['--debug']
+				}
+			},
+			prod: {
+				script: 'src/server/main.js'
+			},
+			options: {
+				ignore: ['node_modules/**'],
+				ext: 'js',
+				watch: ['src/server'],
+				// we don't need a high delay because our scripts are saved one-by-one
+				delay: 100,
+				// we want to trigger livereload after the server restarts
+				callback: function(nodemon) {
+					nodemon.on('restart', function() {
+						require('fs').writeFileSync('.rebooted', 'rebooted');
+					});
+				}
+			}
+		},
+
 		watch: {
 
 			// JShint Gruntfile
@@ -128,12 +153,44 @@ module.exports = function(grunt) {
 				files: ['src/client/css/**/*.scss', 'src/client/css/**/*.sass']
 			},
 
+			rebooter: {
+				files: ['.rebooted'],
+				options: {
+					livereload: true
+				}
+			},
+
 			// Live reload files
 			options: {
 				atBegin: true,
 				livereload: true
 			}
 		},
+
+		'node-inspector': {
+			dev: {
+				options: {
+					'save-live-edit': true,
+					'stack-trace-limit': 4,
+					'hidden': ['bower', 'build', 'node_modules', 'src/client']
+				}
+			}
+		},
+
+		concurrent: {
+			prod: {
+				tasks: ['nodemon:prod', 'watch'],
+				options: {
+					logConcurrentOutput: true
+				}
+			},
+			dev: {
+				tasks: ['node-inspector', 'nodemon:dev', 'watch'],
+				options: {
+					logConcurrentOutput: true
+				}
+			}
+		}
 	});
 
 
@@ -144,8 +201,14 @@ module.exports = function(grunt) {
 	 * Default Task
 	 * run `grunt`
 	 */
+	grunt.registerTask('build', [
+		'clean', 'copy', 'update_json', 'jade', 'jshint', 'sass'
+	]);
 	grunt.registerTask('default', [
-		'clean', 'copy', 'update_json', 'jade', 'jshint', 'sass', 'watch'
+		'build', 'concurrent:prod'
+	]);
+	grunt.registerTask('dev', [
+		'build', 'concurrent:dev'
 	]);
 
 
@@ -161,5 +224,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-update-json');
+	grunt.loadNpmTasks('grunt-concurrent');
+	grunt.loadNpmTasks('grunt-nodemon');
+	grunt.loadNpmTasks('grunt-node-inspector');
 
 };
