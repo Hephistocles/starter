@@ -1,0 +1,11 @@
+html
+	head
+		title Starter Project
+		link(href="css/lib.css" rel="stylesheet")
+		link(href="css/main.css" rel="stylesheet")
+		script(src="js/lib/angular.js")
+		script(src="js/lib/ui-bootstrap.js")
+		script(src="js/main.js")
+	body(ng-app="myapp")
+		.jumbotron(ng-controller="HelloController")
+			h1 Hello {{world}}

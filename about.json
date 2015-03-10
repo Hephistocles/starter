@@ -1,0 +1,21 @@
+{
+	"name": "starter",
+	"version": "0.0.0",
+	"authors": ["Christopher Little <hephistocles@gmail.com>", "Hephistocles"],
+	"description": "Some starter stuff with grunt magic",
+	"homepage": "https://github.com/hephistocles/starter",
+	"license": "MIT",
+	"keywords": [
+		"Starter",
+		"angular",
+		"node",
+		"grunt"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hephistocles/starter"
+	},
+	"bugs": {
+		"url": "https://github.com/hephistocles/starter/issues"
+	}
+}

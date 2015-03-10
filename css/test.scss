@@ -1,0 +1,51 @@
+
+@import "../bower/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+.sql-builder-table {
+
+  .col-btn:hover {
+    color: #5bc0de;
+    cursor: pointer;
+  }
+  .order {
+    float: left;
+    position: relative;
+    width: 1.3em;
+    height: 1em;
+    top: -6px;
+    left: 0.3em;
+    .up {
+      position:absolute;
+      top: 0; left: 0
+    }
+    .down {
+      position:absolute;
+      left: -1px; top: 1em;
+    }
+  }
+
+  .rank {
+    z-index: -1;
+    position: absolute;
+    font-size: 10px;
+    background-color: lightcoral;
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    line-height: 13px;
+    vertical-align: 13px;
+    border-radius: 100%;
+    color: white;
+    bottom: -1.9em;
+    left: -0.5em;
+  }
+
+  .remove-column {
+      float: left;
+      margin:0 1px;
+  }
+  .edit-column {
+      float: left;
+      margin:0 1px;
+  }
+}

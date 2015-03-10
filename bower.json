@@ -1,0 +1,25 @@
+{
+	"name": "tbc",
+	"version": "tbc",
+	"authors": "tbc",
+	"description": "tbc",
+	"main": "tbc",
+	"keywords": "tbc",
+	"license": "tbc",
+	"homepage": "tbc",
+
+	
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower",
+		"build"
+	],
+	"dependencies": {
+		"angular-ui-bootstrap-bower": "~0.12.1",
+		"angular": "*",
+		"bootstrap-sass": "~3.3.3"
+	},
+	"devDependencies": {}
+}
