@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 		 */
 		jshint: {
 			gruntfile: 'Gruntfile.js',
-			files: ['js/src/**/*.js']
+			files: ['src/client/js/src/**/*.js']
 		},
 
 
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 					}
 				},
 				files: [{
-					cwd: "jade",
+					cwd: "src/client/jade",
 					src: "**/*.jade",
 					dest: "build",
 					expand: true,
@@ -36,10 +36,10 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: [{
-					src: 'css/lib.scss',
+					src: 'src/client/css/lib.scss',
 					dest: 'build/css/lib.css'
 				}, {
-					src: ['css/**/*.scss', '!css/lib.scss'],
+					src: ['src/client/css/**/*.scss', '!src/client/css/lib.scss'],
 					dest: 'build/css/main.css'
 				}]
 			}
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 			js: {
 				files: [{
 					expand: true,
-					cwd: 'js/src',
+					cwd: 'src/client/js/src',
 					src: ['**/*.js'],
 					dest: 'build/js'
 				}]
@@ -109,13 +109,13 @@ module.exports = function(grunt) {
 			// Compile jade templates on change
 			jade: {
 				tasks: ['jade'],
-				files: 'jade/**/*.jade'
+				files: 'src/client/jade/**/*.jade'
 			},
 
 			// JShint on change
 			js: {
 				tasks: ['jshint', 'copy:js'],
-				files: 'js/**/*.js'
+				files: 'src/client/js/**/*.js'
 			},
 
 			dependencies: {
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
 
 			sass: {
 				tasks: ['sass'],
-				files: ['css/**/*.scss', 'css/**/*.sass']
+				files: ['src/client/css/**/*.scss', 'src/client/css/**/*.sass']
 			},
 
 			// Live reload files
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
 	 * run `grunt`
 	 */
 	grunt.registerTask('default', [
-		'clean', 'copy', 'jade', 'jshint', 'sass', 'watch'
+		'clean', 'copy', 'update_json', 'jade', 'jshint', 'sass', 'watch'
 	]);
 
 
