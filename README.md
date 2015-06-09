@@ -15,7 +15,9 @@ The server component is split up into an API half and a client-serving half. The
 
 ## Installation
 
-Fork or download the project by clicking the appropriate button above. You may like to modify the following places to reflect your project info:
+Fork or download the project by clicking the appropriate button above. Install both bower and npm dependencies: `bower install && npm install`. You might need to install some other dependencies too (e.g. node, bower, etc...).
+
+You may like to modify the following places to reflect your project info:
 
 - about.json (N.B. both bower.json and package.json read from here)
 - rename starter.sublime-project
