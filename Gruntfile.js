@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 		 */
 		jshint: {
 			gruntfile: 'Gruntfile.js',
-			files: ['src/client/js/src/**/*.js']
+			files: ['src/client/js/**/*.js']
 		},
 
 
@@ -36,10 +36,10 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: [{
-					src: 'src/client/css/lib.scss',
+					src: 'src/client/sass/lib.scss',
 					dest: 'build/css/lib.css'
 				}, {
-					src: ['src/client/css/**/*.scss', '!src/client/css/lib.scss'],
+					src: ['src/client/sass/**/*.scss', '!src/client/sass/lib.scss'],
 					dest: 'build/css/main.css'
 				}]
 			}
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 			js: {
 				files: [{
 					expand: true,
-					cwd: 'src/client/js/src',
+					cwd: 'src/client/js',
 					src: ['**/*.js'],
 					dest: 'build/js'
 				}]
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
 
 			sass: {
 				tasks: ['sass'],
-				files: ['src/client/css/**/*.scss', 'src/client/css/**/*.sass']
+				files: ['src/client/sass/**/*.scss', 'src/client/sass/**/*.sass']
 			},
 
 			rebooter: {
@@ -227,5 +227,4 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-node-inspector');
-
 };

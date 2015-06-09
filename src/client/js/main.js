@@ -1,13 +1,17 @@
 angular.module("myapp", [])
 	.controller("HelloController", function($scope, $http) {
-		$scope.world = "World!";
+		
+		// Immediate Angular action
+		$scope.world = "World";  
 		$scope.apiMsg = "Loading...";
+
+		// try to dynamically fetch content from the api
 		$http.get('/api/foo').
 			success(function(data) {
 				// this callback will be called asynchronously
 				// when the response is available
 				if (data.success) {
-					$scope.apiMsg = "Message: " + data.result;
+					$scope.apiMsg = data.result;
 				} else {
 					$scope.apiMsg = "Error: " +  data.error.message;
 				}

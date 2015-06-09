@@ -8,5 +8,7 @@ html
 		script(src="js/main.js")
 	body(ng-app="myapp")
 		.jumbotron(ng-controller="HelloController")
-			h1 Hello {{world}}
+			h1 Hi there, 
+				span.name {{world}}
+				| !
 			p {{ apiMsg }}

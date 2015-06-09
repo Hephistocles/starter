@@ -5,8 +5,14 @@
 			"follow_symlinks": true,
 			"path": "./",
 			"follow_symlinks": false,
-			// "file_exclude_patterns": [".*"],
-            "folder_exclude_patterns": ["node_modules", ".sass-cache", "bower", "build"]
+			"file_exclude_patterns": [".rebooted", ".bowerrc"],
+			"folder_exclude_patterns": ["node_modules", ".sass-cache", "bower", "build"]
+		}
+	],
+	"build_systems": [
+		{
+			"name": "Grunt Build",
+			"cmd": ["grunt", "build", "--no-color"]
 		}
 	]
 }
